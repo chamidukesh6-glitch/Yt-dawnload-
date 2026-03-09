@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CHAMIDU TIKTOK DAWNLOADER</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Background Video -->
+<video autoplay loop muted id="bg-video">
+<source src="1772918749645696720p.mp4" type="video/mp4">
+</video>
+
+<!-- Sound Button -->
+<button id="soundBtn" onclick="toggleSound()">🔇</button>
+
+<div class="box">
+
+<h1>CHAMIDU TIKTOK DAWNLOADER</h1>
+<p>Download TikTok Videos Without Watermark</p>
+
+<input id="url" placeholder="Paste TikTok link here">
+
+<button onclick="downloadVideo()" class="download-btn">
+Download
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<!-- Hidden Admin Panel -->
+
+<div id="adminPanel" style="display:none; position:fixed; top:20px; left:20px; background:black; padding:20px; border-radius:10px; color:white;">
+
+<h3>Admin Panel</h3>
+
+<p>Total Visitors: <span id="visits">Loading...</span></p>
+
+<button onclick="closeAdmin()">Close</button>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+
+// Visitor counter
+async function getVisits(){
+
+let res = await fetch("https://api.countapi.xyz/hit/zanny-tiktok-downloader/visits");
+let data = await res.json();
+
+document.getElementById("visits").innerText = data.value;
+
+}
+
+getVisits();
+
+// Hidden admin shortcut
+document.addEventListener("keydown", function(e){
+
+if(e.ctrlKey && e.shiftKey && e.key === "A"){
+
+let pass = prompt("Enter Admin Password");
+
+if(pass === "CHAMIDU23"){
+
+document.getElementById("adminPanel").style.display="block";
+
+}else{
+
+alert("Access Denied");
+
+}
+
+}
+
+});
+
+function closeAdmin(){
+document.getElementById("adminPanel").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
